@@ -10,6 +10,12 @@ libstr.h includes `<string.h>`.
  * `indexOf()`: return the index of a char in a string
  * `indexOfSub()`: return the index of a char in a sub-string
 
+TO DO
+===
+`strsplit()`: return an array of two elems (sub-strings).
+`strreverse()`: reverse a string.
+
+
 LICENSE
 ====
 [MIT](LICENSE)
