@@ -1,7 +1,8 @@
 libstr.h
 ====
 A short library for C with usefull functions for strings.
-libstr.h include `<string.h>`.
+
+libstr.h includes `<string.h>`.
 
  Functions:
 
