@@ -130,7 +130,6 @@ char* strreplace(char find, char rep, char* str){
 
 */
 
-#include <stdio.h>
 
 char** strsplit(char split, char* str){
     if(indexOf(split, str) <= 0){
