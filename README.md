@@ -13,10 +13,8 @@ libstr.h includes `<string.h>`.
  * `strreplace()` : method searches a string for a specified value and returns a new string where the specified values are replaced.
  * `charAt()` : return char in specified index of a string.
  * `strslice()`:  extracts a section of a string and returns a new string.
-
-TO DO
-===
-`strsplit()`: return an array of two elems (sub-strings).
+ * `strsplit()`: Split a string into an array of substrings.
+ * `arrayreverse()`: return a reversed array
 
 
 LICENSE

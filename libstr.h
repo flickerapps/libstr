@@ -123,4 +123,57 @@ char* strreplace(char find, char rep, char* str){
     return replaced;
 }
 
+
+/*
+    char* str = (char*)"Hello-World";
+    char** splited = strsplit('-', str); => ['Hello','World']
+
+*/
+
+#include <stdio.h>
+
+char** strsplit(char split, char* str){
+    if(indexOf(split, str) <= 0){
+        return NULL;
+    }
+    char** splited = (char**)calloc(1,sizeof(char*));
+    int idx = 0;
+    int i = 0;
+    int ini = 0;
+    int fin = 0;
+    while(str[i] != '\0'){
+        if(str[i] == split){
+            fin = i - 1;
+            char* wor = substr(str, ini, fin);
+            /* insert */
+            splited = (char**)realloc(splited, sizeof(char*) * (idx + 1));
+            splited[idx++] = wor;
+            ini = fin = i + 1;
+        }
+        else if(str[i+1] == '\0'){
+            fin = i;
+            char* last_wor = substr(str, ini, fin);
+            splited = (char**)realloc(splited, sizeof(char*) * (idx + 1));
+            splited[idx++] = last_wor;
+            /* insert */
+        }
+        i++;
+    }
+    return splited;
+}
+
+
+char** arrayreverse(char** array){
+    char** reversed = (char**)malloc(sizeof(array));
+    int i = 0;
+    int j = 0;
+    while(array[j+1] != NULL){
+        j++; /*num of elems */
+    }
+    j--;
+    while(j >= 0){
+        reversed[i++] = array[j--];
+    }
+    return reversed;
+}
 #endif

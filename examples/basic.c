@@ -22,5 +22,14 @@ int main(int argc, char const *argv[])
     printf("Slice: %s\n", sliced); /* => World */
     printf("Reverse: %s\n", reverse); /* => dlroW olleH */
     printf("Replace: %s\n", replaced); /* H3ll0 W0rld */
+
+    char* str11 = (char*)"Lorem ipsum dolor sit amet";
+    char** splited = strsplit(' ', str11); /* => { "Lorem", "ipsum", "dolor", "sit", "amet" } */
+
+    printf("Splited: ");
+    for(int i = 0 ; i < 5 ; i++){
+        printf("[\"%s\"]", splited[i]);
+    }
+    printf("\n");
     return 0;
 }
