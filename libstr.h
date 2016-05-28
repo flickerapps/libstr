@@ -19,6 +19,7 @@ char* substr(char* str, int start, int end){
         substring[j] = str[i];
         j++;
     }
+    substring[j] = '\0';
     return substring;
 }
 
