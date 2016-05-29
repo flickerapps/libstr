@@ -4,7 +4,7 @@
 int main(int argc, char const *argv[])
 {
     /*Task: find the index of 'e' in 'I have...' */
-    char* msg = (char*)"The Life is a game and I have the ball";
+    char msg[] = "The Life is a game and I have the ball";
 
     /* Without indexOfSub: */
 

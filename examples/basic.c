@@ -3,7 +3,7 @@
 
 int main(int argc, char const *argv[])
 {
-    char* str = (char*)"Hello World";
+    char str[] = "Hello World";
     int W = indexOf('W',str);
     if(W > 0){
         const char* substring = substr(str, W, strlen(str) -1 ); /* => World */
@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
     printf("Reverse: %s\n", reverse); /* => dlroW olleH */
     printf("Replace: %s\n", replaced); /* H3ll0 W0rld */
 
-    char* str11 = (char*)"Lorem ipsum dolor sit amet";
+    char str11[] = "Lorem ipsum dolor sit amet";
     char** splited = strsplit(' ', str11); /* => { "Lorem", "ipsum", "dolor", "sit", "amet" } */
 
     printf("Splited: ");
@@ -31,5 +31,10 @@ int main(int argc, char const *argv[])
         printf("[\"%s\"]", splited[i]);
     }
     printf("\n");
+
+    freeStr(sliced);
+    freeArray(splited);
+    freeStr(reverse);
+    freeStr(replaced);
     return 0;
 }
