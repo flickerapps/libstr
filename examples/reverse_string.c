@@ -9,8 +9,5 @@ int main(int argc, char const *argv[])
     toArray = arrayreverse(toArray);
     char* join = arrayjoin(toArray, ' ');
     printf("Reversed String: %s\n", join); /* => amet sit dolor ipsum Lorem */
-
-    freeArray(toArray);
-    freeStr(join);
     return 0;
 }

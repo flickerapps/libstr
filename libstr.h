@@ -35,7 +35,8 @@ char* substr(char* str, int start, int end){
         j++;
     }
     else{
-        for(int i = start; i <= end ; i++){
+        int i;
+        for(i = start; i <= end ; i++){
             substring[j] = str[i];
             j++;
         }
@@ -145,10 +146,11 @@ char* strreplace(char find, char rep, char* str){
 
 int arraylen(char** array){
     int i = 0;
-    while(array[i] != NULL){
-        if(array[i]) i++;
+    int c;
+    while( ( c = sizeof(* (array  + i) ) ) > 0 && *(array + i) != NULL){
+        i++;
     }
-    return i;
+    return i - 1;
 }
 
 
@@ -229,7 +231,7 @@ char** strsplit(char split, char* str){
 int arraysize( char** array){
     int size = 0;
     int i = 0;
-    while(array[i] != NULL){
+    while(i < arraylen(array)){
         size += CHAR_SIZE * strlen(array[i]);
         i++;
     }
@@ -242,7 +244,7 @@ char** arrayreverse(char** array){
     char** reversed = (char**)malloc( arraysize(array) );
     int i = 0;
     int j = arraylen(array);
-    while(j > 0){
+    while(j >= 0){
         reversed[i++] = array[--j];
     }
     return reversed;

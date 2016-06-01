@@ -27,13 +27,13 @@ int main(int argc, char const *argv[])
     char** splited = strsplit(' ', str11); /* => { "Lorem", "ipsum", "dolor", "sit", "amet" } */
 
     printf("Splited: ");
-    for(int i = 0 ; i < 5 ; i++){
+    int i;
+    for(i = 0 ; i < 5 ; i++){
         printf("[\"%s\"]", splited[i]);
     }
     printf("\n");
 
     freeStr(sliced);
-    freeArray(splited);
     freeStr(reverse);
     freeStr(replaced);
     return 0;
