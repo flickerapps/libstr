@@ -146,11 +146,10 @@ char* strreplace(char find, char rep, char* str){
 
 int arraylen(char** array){
     int i = 0;
-    int c;
-    while( ( c = sizeof(* (array  + i) ) ) > 0 && *(array + i) != NULL){
+    while(array[i] != NULL){
         i++;
     }
-    return i - 1;
+    return i;
 }
 
 
@@ -188,8 +187,6 @@ char* removechars(const char* rem, char* str){ /*rem is an array of chars*/
     removed[i] = '\0';
     return removed;
 }
-
-
 char** strsplit(char split, char* str){
     if(indexOf(split, str) <= 0){
         char** unique = (char**)malloc( CHAR_SIZE * strlen(str) + 1);
@@ -215,7 +212,7 @@ char** strsplit(char split, char* str){
         else if(str[i] == split){
             fin = i - 1;
             char* wor = substr(str, ini, fin);
-            size += CHAR_SIZE * strlen(wor) + 1;
+            size += CHAR_SIZE * strlen(wor);
             /* insert */
             splited = (char**)realloc(splited, size);
             splited[idx++] = wor;
@@ -232,8 +229,7 @@ int arraysize( char** array){
     int size = 0;
     int i = 0;
     while(i < arraylen(array)){
-        size += CHAR_SIZE * strlen(array[i]);
-        i++;
+        size += strlen(array[i++]); /* space and \0 */
     }
     return size;
 }
@@ -243,9 +239,10 @@ char** arrayreverse(char** array){
     }
     char** reversed = (char**)malloc( arraysize(array) );
     int i = 0;
+
     int j = arraylen(array);
-    while(j >= 0){
-        reversed[i++] = array[--j];
+    while(j--){
+        reversed[i++] = array[j];
     }
     return reversed;
 }
@@ -257,7 +254,7 @@ char* arrayjoin(char** array, char unio){
     }
     int i = 0;
     int total = arraysize(array); /* total of chars */
-    total += arraylen(array) * sizeof(char); /* counting the unio */
+    total += arraylen(array) * sizeof(char) + 1; /* counting the unio */
     char* join = (char*)malloc(total);
     i = 0;
     while(i < arraylen(array)){

@@ -8,6 +8,7 @@ int main(int argc, char const *argv[])
     char** toArray = strsplit(' ', str);
     toArray = arrayreverse(toArray);
     char* join = arrayjoin(toArray, ' ');
-    printf("Reversed String: %s\n", join); /* => amet sit dolor ipsum Lorem */
+    printf("Reversed: %s\n", join); /* => amet sit dolor ipsum Lorem */
+    printf("%d == %d\n", strlen(str), strlen(join)); /* => 26 == 26 */
     return 0;
 }
