@@ -191,7 +191,8 @@ char** strsplit(char split, char* str){
     if(indexOf(split, str) <= 0){
         char** unique = (char**)malloc( CHAR_SIZE * strlen(str) + 1);
         unique[0] = str;
-        strcpy(*unique, str);
+        unique[1] = NULL;
+        strncpy(*unique, str, strlen(str));
         return unique;
     }
     char** splited = (char**)malloc(1);
